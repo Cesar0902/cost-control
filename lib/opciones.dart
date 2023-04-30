@@ -1,61 +1,68 @@
 import 'package:flutter/material.dart';
-import 'resumen.dart';
+import 'Movimientos.dart';
 import 'Registros.dart';
-//import 'compras_page.dart';
-//import 'ventas_page.dart';
 
 class Opciones extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('Opciones'),
+          backgroundColor: Color.fromARGB(255, 30, 31, 49),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                child: Text('Resumen'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Resumen()),
-                  );
-                },
+        body: Container(
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                'https://c0.wallpaperflare.com/preview/241/384/859/analysis-analytics-analyzing-annual.jpg',
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                child: Text('Movimiento de Activos'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Registros()),
-                  );
-                },
-              ),
-              // SizedBox(height: 20),
-              // ElevatedButton(
-              //   child: Text('Compras'),
-              //   onPressed: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => ComprasPage()),
-              //     );
-              //   },
-              // ),
-              // SizedBox(height: 20),
-              // ElevatedButton(
-              //   child: Text('Ventas'),
-              //   onPressed: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => VentasPage()),
-              //     );
-              //   },
-              // ),
-            ],
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(200, 50), 
+                    primary:
+                        Color.fromARGB(255, 223, 122, 29), 
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ), // borde redondeado
+                  ),
+                  child: Text('Resumen', style: TextStyle(fontSize: 20)),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Movimientos()),
+                    );
+                  },
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(200, 50), 
+                    primary: Colors.blue, 
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ), 
+                  ),
+                  child: Text('Movimiento de Activos',
+                      style: TextStyle(fontSize: 20)),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Registros()),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
