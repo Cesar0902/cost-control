@@ -8,7 +8,8 @@ class Movimientos extends StatefulWidget {
 
 class _MovimientosState extends State<Movimientos> {
   final box = GetStorage();
-
+  final _boldStyle =
+      TextStyle(fontWeight: FontWeight.normal, color: Colors.white);
   List<Map<String, dynamic>> movimientos = [];
 
   int ingresos = 0;
@@ -53,13 +54,45 @@ class _MovimientosState extends State<Movimientos> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Movimientos'),
+        backgroundColor: Color.fromARGB(255, 30, 31, 49),
       ),
       body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              'https://c0.wallpaperflare.com/preview/241/384/859/analysis-analytics-analyzing-annual.jpg',
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text('Ingresos: $ingresos'),
-            Text('Retiros: $retiros'),
+            Container(
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.grey[700],
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Text(
+                'Ingresos: $ingresos',
+                style: _boldStyle.copyWith(fontSize: 24.0),
+              ),
+            ),
+            SizedBox(height: 6.0),
+            Container(
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.grey[700],
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Text(
+                'Retiros: $retiros',
+                style: _boldStyle.copyWith(fontSize: 24.0),
+              ),
+            ),
+            SizedBox(height: 6.0),
             Expanded(
               child: ListView.builder(
                 itemCount: movimientos.length,
@@ -70,18 +103,34 @@ class _MovimientosState extends State<Movimientos> {
                   final descripcion = movimiento['descripcion'];
                   final fecha = DateTime.parse(movimiento['fecha']);
 
-                  return ListTile(
-                    leading: tipo == 'Ingreso'
-                        ? Icon(Icons.add)
-                        : Icon(Icons.remove),
-                    title: Text('$tipo de $monto pesos'),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Descripción: $descripcion'),
-                        Text(
-                            'Fecha: ${fecha.day}/${fecha.month}/${fecha.year}'),
-                      ],
+                  return Container(
+                    padding: EdgeInsets.all(1.0),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 44, 46, 66),
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1.0,
+                        style: BorderStyle.solid,
+                      ),
+                    ),
+                    child: ListTile(
+                      leading: tipo == 'Ingreso'
+                          ? Icon(Icons.add, size: 32, color: Colors.white)
+                          : Icon(Icons.remove, size: 32, color: Colors.white),
+                      title: Text('$tipo de $monto pesos',
+                          style: _boldStyle.copyWith()),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Descripción: $descripcion',
+                              style: _boldStyle.copyWith()),
+                          Text(
+                            'Fecha: ${fecha.day}/${fecha.month}/${fecha.year}',
+                            style: _boldStyle.copyWith(),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -95,6 +144,7 @@ class _MovimientosState extends State<Movimientos> {
         children: [
           FloatingActionButton(
             heroTag: "btn2",
+            backgroundColor: Color.fromARGB(255, 30, 31, 49),
             onPressed: () {
               showDialog(
                 context: context,
@@ -171,6 +221,7 @@ class _MovimientosState extends State<Movimientos> {
           SizedBox(height: 16.0),
           FloatingActionButton(
             heroTag: "btn1",
+            backgroundColor: Color.fromARGB(255, 30, 31, 49),
             onPressed: () {
               showDialog(
                 context: context,
