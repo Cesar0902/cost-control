@@ -53,7 +53,7 @@ class _MovimientosState extends State<Movimientos> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Resumen Movimientos de Ingresos y Retiros'),
+        title: Text('Resumen Movimientos'),
         backgroundColor: Color.fromARGB(255, 30, 31, 49),
       ),
       body: Container(
