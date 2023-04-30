@@ -94,6 +94,7 @@ class _MovimientosState extends State<Movimientos> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: "btn2",
             onPressed: () {
               showDialog(
                 context: context,
@@ -169,6 +170,7 @@ class _MovimientosState extends State<Movimientos> {
           ),
           SizedBox(height: 16.0),
           FloatingActionButton(
+            heroTag: "btn1",
             onPressed: () {
               showDialog(
                 context: context,
