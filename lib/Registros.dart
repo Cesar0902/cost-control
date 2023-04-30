@@ -150,29 +150,10 @@ class _RegistrosState extends State<Registros> {
                 style: _boldStyle.copyWith(fontSize: 20.0),
               ),
             ),
-            // SizedBox(height: 8.0),
-            // Text(
-            //   'Contador: $contador',
-            //   style: TextStyle(fontSize: 20.0),
-            // ),
-
-            //SizedBox(height: 8.0),
-            // Text('Contador: $contador',
-            //   style: TextStyle(fontSize: 20.0),
-            // ),
+            
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     contador++;
-      //    // box.write('contador', contador);
-      //     print('valor en storage');
-      //    // print(box.read('contador') ?? 0);
-
-      //     //setState(() {});
-      //   },
-      // ),
     );
   }
 }
